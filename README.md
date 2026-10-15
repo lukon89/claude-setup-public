@@ -22,6 +22,10 @@ Patterns are first logged in `Learnings.md` as *incubating*. After a second occu
 
 See `rules/rule-factory.md` for the full process.
 
+## Note on commit history
+
+The rules and skills in this repo were extracted from my private Claude Code configuration that I've been building over several months. The initial commit date doesn't reflect when these patterns were developed — it reflects when I pulled the non-company-specific ones into this public repo.
+
 ## Setup
 
 ```bash
