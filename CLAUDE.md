@@ -1,15 +1,15 @@
 # Project Configuration
 
-@~/.claude/rules/safety.md
-@~/.claude/rules/rule-factory.md
-@~/.claude/rules/coding-guidelines.md
-@~/.claude/rules/docstrings.md
-@~/.claude/rules/implementation-completeness-checklist.md
-@~/.claude/rules/branch-from-main.md
-@~/.claude/rules/pre-pr-checks.md
-@~/.claude/rules/migration-discipline.md
-@~/.claude/rules/reply-to-pr-comments.md
-@~/.claude/rules/verify-before-stating.md
-@~/.claude/rules/verify-in-source-of-truth.md
-@~/.claude/rules/slack-draft-only.md
-@~/.claude/rules/interactive-questions.md
+@rules/safety.md
+@rules/rule-factory.md
+@rules/coding-guidelines.md
+@rules/docstrings.md
+@rules/implementation-completeness-checklist.md
+@rules/branch-from-main.md
+@rules/pre-pr-checks.md
+@rules/migration-discipline.md
+@rules/reply-to-pr-comments.md
+@rules/verify-before-stating.md
+@rules/verify-in-source-of-truth.md
+@rules/slack-draft-only.md
+@rules/interactive-questions.md
