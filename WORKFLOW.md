@@ -110,6 +110,40 @@ The log lives locally at `~/work-log/` with an HTML dashboard served via `npx se
 
 ---
 
+## Domain-specific debugging skills
+
+Beyond the general workflow skills, I maintain a set of private skills for debugging specific parts of the stack. These are not in this repo (they contain company-specific details) but the pattern is worth describing.
+
+### Log analysis skills
+
+Each service has its own skill that knows: which log system to query (Grafana/Loki, CloudWatch), which log groups map to which service, how to parse the log format, and what to look for given a Sentry alert or error description.
+
+Instead of me describing the error and the service every time, I just paste the alert URL and the skill fetches the issue details, extracts the exact timestamp and culprit, queries the right log group at the right time, and surfaces the relevant lines.
+
+### Data investigation skills
+
+For investigating data issues (missing records, sync failures, role/permission problems), I have skills that know the data model — which tables to query, which joins to make, which fields are encrypted vs plaintext, and where the source of truth is vs derived views.
+
+The skill takes an entity ID or user ID and runs the right sequence of queries across the right datasets, rather than me having to remember the schema every time.
+
+### API routing / mapping skills
+
+The stack has multiple layers (edge proxy, gateway, internal services). When an endpoint returns an unexpected response, a skill can trace the request through each layer — checking whether the route exists at the edge, whether the gateway has a proxy route configured, and whether the service handler is wired up — and pinpoint exactly which layer is missing or misconfigured.
+
+### Local environment skills
+
+Skills that rebuild specific services from source, restart containers, re-run migrations, and verify the local environment matches the expected state — without me having to remember the exact sequence of commands for each service.
+
+### Pattern
+
+All of these follow the same structure:
+1. Skill description tells Claude what system it's operating in and what assumptions to make
+2. User provides a minimal input (alert URL, entity ID, service name)
+3. Skill drives the investigation using the right tools (BigQuery via Python urllib, Sentry via REST API, CloudWatch via AWS CLI, etc.)
+4. Output is a diagnosis + suggested next step, not raw logs
+
+---
+
 ## Plugins
 
 | Plugin | Role |
